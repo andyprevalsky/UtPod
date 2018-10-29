@@ -1,4 +1,6 @@
 #include <iostream>
+#ifndef SONG_H
+#define SONG_H
 using namespace std;
 
 class Song {
@@ -7,35 +9,40 @@ class Song {
         string title;
         int size;
     public:
+        Song() {
+        } 
+        Song(string artist, string title, int size) {
+            this->artist = artist;
+            this->title = title;
+            this->size = size;
+        }
 
-    Song(string artist, string title, int size) {
-        this->artist = artist;
-        this->title = title;
-        this->size = size;
-    }
+        void setArtist(string artist) {
+            this->artist = artist;
+        }
 
-    void setArtist(string artist) {
-        this->artist = artist;
-    }
+        void setTitle(string title) {
+            this->title = title;
+        }
 
-    void setTitle(string title) {
-        this->title = title;
-    }
+        void setSize(int size) {
+            this->size = size;
+        }
 
-    void setSize(int size) {
-        this->size = size;
-    }
+        string getArtist() const {
+            return artist;
+        }
 
-    string getArtist() {
-        return artist;
-    }
+        string getTitle() const {
+            return title;
+        }
 
-    string getTitle() {
-        return title;
-    }
+        int getSize() const {
+            return size;
+        }
 
-    int getSize() {
-        return size;
-    }
+        ~Song();
 
 };
+
+#endif
