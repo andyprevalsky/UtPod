@@ -22,27 +22,19 @@ class UtPod
       SongNode *songs;  //the head pointer
       
       int memSize;
+
+      int getLength();
    
    public:
       //Default constructor
       //set the memory size to MAX_MEMORY
-      UtPod() {
-        songs = NULL;
-        this->memSize = MAX_MEMORY;
-      }
+      UtPod();
 
       //Constructor with size parameter
       //The user of the class will pass in a size.
       //If the size is greater than MAX_MEMORY or less than or equal to 0,
       //set the size to MAX_MEMORY.
-      UtPod(int size) {
-        songs = NULL;
-        if (size > MAX_MEMORY || size < 0) {
-          this->memSize = MAX_MEMORY;
-        } else {
-          this->memSize = size;
-        }
-      }
+      UtPod(int size);
 
       /* FUNCTION - int addSong
        * attempts to add a new song to the UtPod
@@ -56,21 +48,7 @@ class UtPod
        output parms - 0 if song was added and -1 if song could not be added due to memory overflow
       */
 
-      int addSong(Song const &s) {
-        if(s.getSize() > memSize) {
-          return NO_MEMORY;
-        }
-        SongNode newSong;
-        newSong.s = s;
-        if(songs == NULL){
-          songs = &newSong;
-        }
-        else{
-          newSong.next = songs;
-          songs = &newSong;
-        }
-        return SUCCESS;
-      }
+      int addSong(Song const &s);
 
       /* FUNCTION - int removeSong
        * attempts to remove a song from the UtPod
@@ -84,9 +62,7 @@ class UtPod
          output parms -
       */
 
-      int removeSong(Song const &s) {
-        
-      }
+      int removeSong(Song const &s);
 
       /* FUNCTION - void shuffle
        *  shuffles the songs into random order
@@ -97,9 +73,7 @@ class UtPod
          output parms -
       */
 
-      void shuffle() {
-
-      }
+      void shuffle();
 
       /* FUNCTION - void showSongList
        * prints the current list of songs in order from first to last to standard output
@@ -110,10 +84,7 @@ class UtPod
          output parms -
       */
 
-      void showSongList() {
-
-      }
-
+      void showSongList();
 
       /* FUNCTION - void sortSongList
        *  sorts the songs in ascending order
@@ -134,9 +105,7 @@ class UtPod
 
          output parms -
       */
-      void clearMemory() {
-
-      }
+      void clearMemory();
 
       /* FUNCTION - int getTotalMemory
        *  returns the total amount of memory in the UtPod
@@ -148,7 +117,7 @@ class UtPod
       */
 
       int getTotalMemory() {
-         return memSize;
+        return memSize;
       }
 
       /* FUNCTION - int getRemainingMemory
@@ -160,7 +129,6 @@ class UtPod
       */
 
       int getRemainingMemory();
-
 
       ~UtPod();
  

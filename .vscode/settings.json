@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "functional": "cpp",
+        "__locale": "cpp",
+        "ios": "cpp",
+        "iosfwd": "cpp",
+        "__string": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "iostream": "cpp",
+        "__split_buffer": "cpp",
+        "iterator": "cpp",
+        "vector": "cpp"
+    }
+}

@@ -9,13 +9,15 @@ class Song {
         string title;
         int size;
     public:
-        Song() {
-        } 
-        Song(string artist, string title, int size) {
-            this->artist = artist;
-            this->title = title;
-            this->size = size;
-        }
+        Song();
+
+        Song(string artist, string title, int size);
+
+        bool operator < (Song const &s);
+
+        bool operator > (Song const &s);
+
+        bool operator == (Song const &s);
 
         void setArtist(string artist) {
             this->artist = artist;
@@ -42,7 +44,6 @@ class Song {
         }
 
         ~Song();
-
 };
 
 #endif
