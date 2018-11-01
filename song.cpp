@@ -11,16 +11,19 @@ Song::Song(string artist, string title, int size) {
 }
 
 bool Song::operator < (Song const &s) {
+// a </> b
+//positive when
+//negative when a < b
 
-    if (artist.compare(s.getArtist()) < 0) {
+    if (artist < s.getArtist()) {
         return true;
-    } else if (artist.compare(s.getArtist()) > 0) {
+    } else if (artist > s.getArtist()) {
         return false;
     }
 
-    if (title.compare(s.getTitle()) < 0) {
+    if (title < s.getTitle()) {
         return true;
-    } else if (title.compare(s.getTitle()) > 0) {
+    } else if (title > s.getTitle()) {
         return false;
     }
 

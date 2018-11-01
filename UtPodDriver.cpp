@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 //get remaining memory when empty
     int remain = t.getRemainingMemory();
     int total = t.getTotalMemory();
-    cout << "Total Memory: " << total << endl << "Remaining Memory: " << remain << endl;
+    cout << "Total Memory: " << total << " MB" << endl << "Remaining Memory: " << remain << " MB" << endl;
     cout << endl;
 //add when empty
     cout << "Add when UtPod is empty" << endl;
@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
     Song s4("Nujabes","Counting Stars",55);
     Song s5("ABBA","Take On Me",200);
     result = t.addSong(s2);
+    result = t.addSong(s22);
     result = t.addSong(s3);
     result = t.addSong(s4);
     result = t.addSong(s5);
@@ -70,10 +71,11 @@ int main(int argc, char *argv[])
     cout << endl;
 //get remaining memory
     remain = t.getRemainingMemory();
-    cout << "Remaining Memory should be: "<< t.getTotalMemory()-500 << endl;
-    cout << "Remaing Memory: " << remain;
+    cout << "Remaining Memory should be: "<< t.getTotalMemory()-500 << " MB" << endl;
+    cout << "Remaing Memory: " << remain << " MB" << endl;
     cout << endl;
 //add to make FULL
+    cout << "Add another song to make it full" << endl;
     Song s6("Bazzi","Take On Me",t.getRemainingMemory());
     result = t.addSong(s6);
     t.showSongList();
@@ -87,36 +89,65 @@ int main(int argc, char *argv[])
     cout << "Adding when the memory is full"<< endl;
     Song s7("Bazzi","Beautiful",10);
     result = t.addSong(s7);
-    cout << "Result = " << result << endl;
+    cout << "Result = " << result << " MB" << endl;
     cout << endl;
 //remove a song that comes up twice
     cout << "Removing a song that occurs multiple times in UtPod" << endl;
     result = t.removeSong(s22);
+    cout << "Result = " << result << endl;
+    t.showSongList();
     cout << endl;
 //remove a song at the beginning
     cout << "Remove the song at the head of the linked list of Songs" << endl;
     result = t.removeSong(s5);
+    cout << "Result = " << result << endl;
+    t.showSongList();
     cout << endl;
 //remove a song at the end
     cout << "Remove the last songnode that points to null" << endl;
     result = t.removeSong(s4);
     cout << "Result = " << result << endl;
+    t.showSongList();
     cout << endl;
 //remove all but two songs
     result = t.removeSong(s6);
     result = t.removeSong(s3);
 //*********TWO SONGS LEFT***********
 //when two songs are left:: shuffle
-    cout << "Two Songs in UtPod::" << endl;
+    cout << "Two Songs in UtPod:" << endl;
     t.showSongList();
-    cout << "Shuffle" << endl;
+    cout << endl << "Shuffle" << endl;
     t.shuffle();
+    t.showSongList();
+    cout << endl;
+//sort the two songs
+    cout << "Sort" << endl;
+    t.sortSongList();
     t.showSongList();
     cout << endl;
 //*********ONE SONG  LEFT***********
 //when one song is left
+    cout << "Remove all songs" << endl;
     result = t.removeSong(s1);
-//
-
+    result = t.removeSong(s2);
+    cout << "Result = " << result << endl;
+    t.showSongList();
+    cout << endl;
+//total memory left: should be empty
+    cout << "Remaining memory: should equal memSize: " << t.getTotalMemory() << endl;
+    remain = t.getRemainingMemory();
+    cout << "Result = " << remain << " MB" << endl;
+    cout << endl;
+//clearing memory
+    cout << "Clear Memory: add songs" << endl;
+    result = t.addSong(s1);
+    result = t.addSong(s2);
+    result = t.addSong(s3);
+    t.showSongList();
+    cout << endl << "Clear" << endl;
+    t.clearMemory();
+    t.showSongList();
+    cout << "Remaining Memory after Clear: " << t.getRemainingMemory() << " MB" << endl;
+    cout << endl;
 
 }

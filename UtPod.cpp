@@ -171,14 +171,15 @@ void UtPod::sortSongList() {
         return;
     }
     SongNode* song1;
-    for(int i = 0;i < length;i++){
+    for(int i = 0;i < length; i++){
         song1 = songs;
         for(int j = 0;j < length-1;j++){
-            if(song1->s < song1->next->s){
+            if(song1->s > song1->next->s){
                 Song tmp = song1->s;
                 song1->s = song1->next->s;
                 song1->next->s = tmp;
             }
+            song1 = song1->next;
         }
     }
 }
@@ -192,7 +193,6 @@ void UtPod::sortSongList() {
          output parms -
       */
 
-     //possibly wrong
 void UtPod::clearMemory() { 
     SongNode* temp = songs;
     SongNode* prev;
