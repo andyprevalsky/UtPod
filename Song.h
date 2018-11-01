@@ -9,16 +9,21 @@ class Song {
         string title;
         int size;
     public:
+        //declarations for functions
+
+        //declarations for constructers
         Song();
 
         Song(string artist, string title, int size);
 
+        //overload operators for sort functions
         bool operator < (Song const &s);
 
         bool operator > (Song const &s);
 
         bool operator == (Song const &s);
 
+        //getters and setters
         void setArtist(string artist) {
             this->artist = artist;
         }
@@ -43,6 +48,7 @@ class Song {
             return size;
         }
 
+        //deconstructor
         ~Song();
 };
 
