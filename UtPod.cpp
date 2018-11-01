@@ -85,6 +85,7 @@ int UtPod::removeSong (Song const &s) {
     if(temp->s == s){
         songs = temp->next;
         delete temp;
+        memSize -= temptemp->s.getSize();
         return SUCCESS;
     }
 
@@ -92,6 +93,7 @@ int UtPod::removeSong (Song const &s) {
         if(temp->next->s == s) {
             temptemp = temp->next;
             temp->next = temp->next->next;
+            memSize -= temptemp->s.getSize();
             delete temptemp;
             return SUCCESS;
         }

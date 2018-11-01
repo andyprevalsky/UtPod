@@ -10,6 +10,7 @@
         "iostream": "cpp",
         "__split_buffer": "cpp",
         "iterator": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "random": "cpp"
     }
 }
