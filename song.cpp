@@ -3,6 +3,7 @@
 Song::Song() {   
 
 } 
+
 Song::Song(string artist, string title, int size) {
     this->artist = artist;
     this->title = title;
@@ -38,4 +39,8 @@ bool Song::operator == (Song const &s) {
         return true;
     }
     return false;
+}
+
+Song::~Song() {
+
 }
