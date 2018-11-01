@@ -59,7 +59,6 @@ int UtPod::addSong(Song const &s) {
         newSong->next = songs;
         songs = newSong;
     }
-    memSize = memSize + newSong->s.getSize();
     return SUCCESS;
 }
 
@@ -85,7 +84,6 @@ int UtPod::removeSong (Song const &s) {
     if(temp->s == s){
         songs = temp->next;
         delete temp;
-        memSize -= temptemp->s.getSize();
         return SUCCESS;
     }
 
@@ -93,7 +91,6 @@ int UtPod::removeSong (Song const &s) {
         if(temp->next->s == s) {
             temptemp = temp->next;
             temp->next = temp->next->next;
-            memSize -= temptemp->s.getSize();
             delete temptemp;
             return SUCCESS;
         }
@@ -205,7 +202,6 @@ void UtPod::clearMemory() {
         delete prev;
     }
     songs = NULL;
-    memSize = 0;
     return;
 }
 
@@ -219,7 +215,13 @@ void UtPod::clearMemory() {
      
 
 int UtPod::getRemainingMemory() {
-    return MAX_MEMORY-memSize;
+    SongNode *temp = songs;
+    int size = 0;
+    while(temp != NULL){
+        size = size + temp->s.getSize();
+        temp = temp->next;
+    }
+    return memSize-size;
 }
 
 UtPod::~UtPod() {
